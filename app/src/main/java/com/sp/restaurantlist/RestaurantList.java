@@ -57,12 +57,14 @@ public class RestaurantList extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @Override
+    /*@Override
 
     protected void onStart(){
         invalidateOptionsMenu();
         super.onStart();
     }
+    */
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

@@ -107,22 +107,25 @@ public class DetailForm extends AppCompatActivity {
                 longitude = gpsTracker.getLongitude();
                 location.setText(String.valueOf(latitude) + ", " + String.valueOf(longitude));
                 Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
-            }
-            else if (item.getItemId() == R.id.show_map){
-                myLatitude = gpsTracker.getLatitude();
-                myLongitude = gpsTracker.getLongitude();
-
-                Intent intent = new Intent(this, RestaurantMap.class);
-                intent.putExtra("LATITUDE", latitude);
-                intent.putExtra("LONGITUDE", longitude);
-                intent.putExtra("MYLATITUDE", myLatitude);
-                intent.putExtra("MYLONGITUDE", myLongitude);
-                intent.putExtra("NAME", restaurantName.getText().toString());
-                startActivity(intent);
-
+                return(true);
 
             }
+
+        }
+        else if (item.getItemId() == R.id.show_map){
+            myLatitude = gpsTracker.getLatitude();
+            myLongitude = gpsTracker.getLongitude();
+
+            Intent intent = new Intent(this, RestaurantMap.class);
+            intent.putExtra("LATITUDE", latitude);
+            intent.putExtra("LONGITUDE", longitude);
+            intent.putExtra("MYLATITUDE", myLatitude);
+            intent.putExtra("MYLONGITUDE", myLongitude);
+            intent.putExtra("NAME", restaurantName.getText().toString());
+            startActivity(intent);
             return(true);
+
+
         }
         return super.onOptionsItemSelected(item);
     }

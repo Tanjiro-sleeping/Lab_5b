@@ -24,6 +24,7 @@ public class RestaurantMap extends FragmentActivity implements OnMapReadyCallbac
     private double myLon;
     private LatLng RESTAURANT;
     private LatLng ME;
+    private ActivityRestaurantMapBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class RestaurantMap extends FragmentActivity implements OnMapReadyCallbac
 
         Marker restaurant = mMap.addMarker(new MarkerOptions().position(RESTAURANT).title(restaurantName));
         Marker me = mMap.addMarker(new MarkerOptions().position(ME).title("ME").snippet("My Location").icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_me)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(RESTAURANT, 15));
 
 
 
